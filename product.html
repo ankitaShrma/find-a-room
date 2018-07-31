@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+        crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+
+        }
+
+        .nav-wrapper {
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            background-color: white;
+            color: #fff;
+            transition: all 0.25s ease;
+            position: fixed;
+            z-index: 10;
+            padding-top: 3px;
+            border-bottom: 1px solid #a89f9ffa
+            /* make sure to add vendor prefixes here */
+        }
+
+        .logo {
+            padding-top: 5px;
+            float: left;
+        }
+
+        .logo-img {
+            float: left;
+        }
+
+        .navbar-menu {
+            float: right;
+            color: orange;
+            display: block;
+            margin-top: 3px;
+            font-family: 'Open Sans', sans-serif;
+            letter-spacing: 1px;
+
+        }
+
+        .navbar-menu button {
+            border: 1px solid orange;
+        }
+
+        .nav-menu {
+            float: right;
+        }
+
+        .nav-wrapper.past-main {
+            background-color: #fff;
+            color: black;
+            position: fixed;
+            border-bottom: 1px solid #dcdcdc
+        }
+
+        .list-button {
+            float: left;
+            margin-top: 13px;
+        }
+
+        .register {
+            float: right;
+            padding-bottom: 7px;
+            margin-top: 9px;
+        }
+
+        .register li {
+            display: inline;
+            list-style: none;
+            padding-right: 20px;
+            color: orange;
+        }
+
+        .nav-menu .register button {
+            border: none;
+            background-color: transparent;
+            color: black;
+            text-align: center;
+            cursor: pointer;
+            font-size: 18px;
+
+        }
+
+        .nav-menu .register button:hover {
+            color: orange;
+            border-bottom: 1px solid #df6e21
+        }
+
+        .navbar-menu button {
+            border: none;
+            background-color: transparent;
+            color: black;
+            text-align: center;
+            cursor: pointer;
+            font-size: 18px;
+
+        }
+
+        .navbar-menu button:hover {
+            color: orange;
+            border-bottom: 1px solid #df6e21
+        }
+
+        .wish-list {
+            border-radius: 50%;
+            border: 2px solid orange;
+            padding: 4px;
+
+            cursor: pointer;
+            color: black;
+        }
+
+        .wish-list:hover {
+            background: orange;
+            color: white;
+        }
+
+
+
+        .nav-button {
+
+            background-color: transparent;
+            border: none;
+            color: black;
+            padding: 5px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border: 2px solid orange;
+            font-size: 15px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            letter-spacing: 1px
+        }
+
+        .nav-button.past-main {
+            color: black;
+
+        }
+
+
+
+        .nav-button:hover {
+            background-color: orange;
+            color: white;
+        }
+
+
+        /**********************************************/
+
+        /*****************globals*************/
+
+        body {
+            font-family: 'open sans';
+        }
+
+        .container-fluid {
+            background: #fdfdfd;
+        }
+
+        .container-fluid {
+            padding: 15px;
+            box-shadow: 0px 0px 15px 0px #D6D6D6;
+        }
+
+        .tab-pane img {
+            height: 400px;
+            width: 400px;
+        }
+
+        .preview-thumbnail img {
+            height: 80px;
+            width: 100px;
+        }
+
+        .carousel-button {
+            padding: 0px 0px;
+            border-style: none;
+            height: 40px;
+            width: 50%;
+        }
+
+        .carousel-button {
+            background-color: #2096ba;
+            padding: 0px 0px;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-top: 0.8em;
+            transform: translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            z-index: 2;
+            text-align: center;
+            cursor: pointer;
+
+        }
+
+        .carousel-button::before {
+            content: '';
+            position: absolute;
+            border: #2096ba solid 4px;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transition: 0.2s ease-out;
+            transition-property: top, right, bottom, left;
+        }
+
+        .carousel-button a {
+            text-decoration: none;
+            color: white;
+            height: 30px;
+        }
+
+        .carousel-button:hover::before {
+            top: -8px;
+            bottom: -8px;
+            left: -8px;
+            right: -8px;
+        }
+
+        .preview-thumbnail.nav-tabs {
+            border: none;
+            margin-top: 15px;
+        }
+
+        .preview-thumbnail.nav-tabs li {
+            width: 18%;
+            margin-right: 2.5%;
+        }
+
+        .preview-thumbnail.nav-tabs li img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .preview-thumbnail.nav-tabs li a {
+            padding: 0;
+            margin: 0;
+        }
+
+        .preview-thumbnail.nav-tabs li:last-of-type {
+            margin-right: 0;
+        }
+
+        .tab-content {
+            overflow: hidden;
+        }
+
+        .tab-content img {
+            width: 100%;
+
+        }
+
+        .card {
+            margin-top: 50px;
+            background: white;
+            padding: 3em;
+            line-height: 1.5em;
+        }
+
+        .action {
+            padding-top: 11px;
+            text-transform: UPPERCASE;
+            font-weight: bold;
+        }
+
+
+        .product-title,
+        .price,
+        .sizes,
+        .colors {
+            text-transform: UPPERCASE;
+            font-weight: bold;
+        }
+
+        .checked,
+        .price span {
+            color: #ff9f1a;
+        }
+
+        .product-title,
+        .rating,
+        .product-description,
+        .price,
+        .vote,
+        .sizes {
+            margin-bottom: 15px;
+        }
+
+        .product-title {
+            margin-top: 0;
+        }
+
+        .size {
+            margin-right: 10px;
+        }
+
+        .size:first-of-type {
+            margin-left: 40px;
+        }
+
+        .room {
+            border: 1px solid orange;
+            border-radius: 5%;
+            color: orange;
+            background: transparent;
+            padding: 10px;
+
+        }
+
+        .room span {
+            color: black;
+            font-size: 12px;
+        }
+
+        .room-info {
+            font-family: 'open sans', sans-serif;
+
+        }
+
+        .amenity-info {
+            font-family: 'open sans', sans-serif;
+            color: black;
+
+        }
+
+        .amenities {
+            padding: 15px;
+            color: black;
+            background: transparent;
+            border: 1px solid orange;
+            border-radius: 7%;
+        }
+
+        .amenities {
+            color: orange;
+        }
+
+        .color {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+            height: 2em;
+            width: 2em;
+            border-radius: 2px;
+        }
+
+        .color:first-of-type {
+            margin-left: 20px;
+        }
+
+        .add-to-cart,
+        .like {
+            background: #ff9f1a;
+            padding: 1.2em 1.5em;
+            border: none;
+            text-transform: UPPERCASE;
+            font-weight: bold;
+            color: #fff;
+            -webkit-transition: background .3s ease;
+            transition: background .3s ease;
+        }
+
+        .add-to-cart:hover,
+        .like:hover {
+            background: #b36800;
+            color: #fff;
+        }
+
+        .not-available {
+            text-align: center;
+            line-height: 2em;
+        }
+
+        .not-available:before {
+            font-family: fontawesome;
+            content: "\f00d";
+            color: #fff;
+        }
+
+        .orange {
+            background: #ff9f1a;
+        }
+
+        .green {
+            background: #85ad00;
+        }
+
+        .blue {
+            background: #0076ad;
+        }
+
+        .tooltip-inner {
+            padding: 1.3em;
+        }
+
+        .map {
+            background: url("http://www.sfmission.com/gallery_files/site_pics/Asia/Nepal/Kathmandu/Maps_and_Guides/Kathmandu-google-maps.jpg");
+            height: 300px;
+
+        }
+
+        .related-category {
+            text-align: center;
+        }
+
+        .col-md-3 {
+            text-align: center;
+
+        }
+
+
+        .carousel {
+            margin-bottom: 0;
+            padding: 0 40px 30px 40px;
+
+        }
+
+        .item .row img {
+            height: 200px;
+            width: 250px;
+        }
+
+        .col-md-3:hover {
+            color: orange;
+        }
+
+        /* The controlsy */
+
+        .carousel-control {
+            left: -12px;
+            height: 40px;
+            width: 40px;
+            background: none repeat scroll 0 0 #222222;
+            border: 4px solid #FFFFFF;
+            border-radius: 23px 23px 23px 23px;
+            margin-top: 90px;
+        }
+
+        .carousel-control.right {
+            right: -12px;
+        }
+
+        /* The indicators */
+
+        .carousel-indicators {
+            right: 50%;
+            top: auto;
+            bottom: -10px;
+            margin-right: -19px;
+        }
+
+        /* The colour of the indicators */
+
+        .carousel-indicators li {
+            background: #cecece;
+        }
+
+        .carousel-indicators .active {
+            background: #428bca;
+        }
+
+        .item .row .col-md-3:hover button {
+            display: block;
+            height: 40px;
+            width: 60%;
+            top: 30%;
+            left: 20%;
+            position: absolute;
+            background: #2096ba;
+            text-decoration: none;
+        }
+
+        .item .row .col-md-3:hover a {
+            color: white;
+        }
+
+        .item .row .col-md-3 button {
+
+            border-style: none;
+            display: none;
+            color: white;
+        }
+
+        .footer-wrapper li {
+
+            text-decoration: none;
+            display: inline;
+            padding: 0px 80px;
+        }
+
+        .buttongo {
+            height: 43px;
+            padding: 8px 16px;
+            background: none;
+            border: 1px solid #2096ba;
+            color: #2096ba;
+            border-radius: 4px;
+        }
+
+        .buttongo:hover {
+            background: #2096ba;
+            color: white;
+        }
+
+
+        .clearfix:after {
+            content: " ";
+            /* Older browser do not support empty content */
+            visibility: hidden;
+            display: block;
+            height: 0;
+            clear: both;
+        }
+
+        .map-wrapper {
+            float: left;
+            background: black;
+            width: 40%;
+            height: 40px;
+            position: fixed;
+            margin-left: 60%;
+
+
+        }
+
+        /* Set the size of the div element that contains the map */
+
+        #map {
+            height: 400px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+    </style>
+
+
+
+
+
+</head>
+
+<body>
+
+    <div class="main">
+        <nav class="nav-wrapper clearfix">
+            <div class="logo">
+                <div class="logo-img" onclick="location.href='mainPage.html'">
+                    <img src="logo.png" style="height: 37px; width: 100px">
+
+                </div>
+
+                <ul class="navbar-menu">
+                    <button onclick="location.href='search_home.html'">
+                        <img src="rental.png" style="height: 16px; width: 16px"> Rental Spaces</button>
+                    <button onclick="location.href='furnituresearch.html'">
+                        <img src="table.png" style="height: 16px; width: 16px"> Furnishing Services</button>
+                </ul>
+
+
+            </div>
+            <div class="nav-menu">
+                <button class="bttn nav-button" onclick="location.href='home_sell.html'"> List your Property</button>
+                <button class="bttn nav-button" onclick="location.href='sell_furniture.html'"> Sell your Furnitures</button>
+                <ul class="register">
+                    <li>
+                        <span class="wish-list fas fa-shopping-cart" onclick="location.href='cart.html'"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <button>Register</button>
+                    </li>
+                    <li>
+                        <button>Login</button>
+                    </li>
+                </ul>
+                <!-- <div class="register">Register</div>
+        <div class="login">Login  </div> -->
+            </div>
+        </nav>
+
+
+
+
+
+        <div class="container">
+
+            <div class="card">
+
+                <h1 style="text-align: center; padding-bottom: 10px">
+                    <strong>
+                        <span style="color: orange">Building</span> Details</strong>
+                </h1>
+
+                <div class="container-fluid">
+                    <div class="wrapper row">
+                        <div class="preview col-md-6">
+
+                            <div class="preview-pic tab-content">
+                                <div class="tab-pane active" id="pic-1">
+                                    <img src="https://s-ec.bstatic.com/images/hotel/max1024x768/897/89712052.jpg" />
+                                </div>
+                                <div class="tab-pane" id="pic-2">
+                                    <img src="https://q.bstatic.com/images/hotel/max1024x768/107/107770077.jpg" />
+                                </div>
+                                <div class="tab-pane" id="pic-3">
+                                    <img src="https://t-ec.bstatic.com/images/hotel/max500/113/113244581.jpg" />
+                                </div>
+                                <div class="tab-pane" id="pic-4">
+                                    <img src="https://i.pinimg.com/originals/8f/23/8b/8f238bea49a3708841d59f590c474e36.jpg" />
+                                </div>
+                                <div class="tab-pane" id="pic-5">
+                                    <img src="https://s-ec.bstatic.com/images/hotel/max1024x768/989/98908057.jpg" />
+                                </div>
+                            </div>
+
+
+                            <ul class="preview-thumbnail nav nav-tabs">
+                                <li class="active">
+                                    <a data-target="#pic-1" data-toggle="tab">
+                                        <img src="https://s-ec.bstatic.com/images/hotel/max1024x768/897/89712052.jpg" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-target="#pic-2" data-toggle="tab">
+                                        <img src="https://q.bstatic.com/images/hotel/max1024x768/107/107770077.jpg" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-target="#pic-3" data-toggle="tab">
+                                        <img src="https://t-ec.bstatic.com/images/hotel/max500/113/113244581.jpg" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-target="#pic-4" data-toggle="tab">
+                                        <img src="https://i.pinimg.com/originals/8f/23/8b/8f238bea49a3708841d59f590c474e36.jpg" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-target="#pic-5" data-toggle="tab">
+                                        <img src="https://s-ec.bstatic.com/images/hotel/max1024x768/989/98908057.jpg" />
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="details col-md-6">
+                            <h3 class="product-title">Building - BS106</h3>
+                            <h5>
+                                <span class="fas fa-map-marker-alt"></span>
+                                <strong> Location: </strong>Baneshwor, Kathmandu</h5>
+                            <div class="rating">
+                                <div class="stars">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </div>
+                                <span class="review-no">41 reviews</span>
+                            </div>
+                            <h4 class="price">current price:
+                                <span>Rs. 18,000</span>
+                            </h4>
+                            A brand new house has first and second floor available for rent. Suitable for your perfect space.
+                            <br/> You can contact with landlord for any other queries as well.
+                            <br/>
+
+
+                            <!-- <p >
+                            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet                       
+                        </p> -->
+                            <h4 class="sizes">Rooms:</h4>
+                            <i class="room fa fa-bed" data-toggle="tooltip" title="small">
+                                <span class="room-info"> 3 Bedrooms</span>
+                            </i>
+                            <i class="room fas fa-door-open" data-toggle="tooltip" title="xtra large">
+                                <span class="room-info"> 1 Hall</span>
+                            </i>
+                            <i class="room fas fa-utensils" data-toggle="tooltip" title="medium">
+                                <span class="room-info"> 1 Kitchen</span>
+                            </i>
+                            <i class="room fa fa-bath" data-toggle="tooltip" title="large">
+                                <span class="room-info"> 1 Bathroom </span>
+                            </i>
+
+
+                            <h4 class="colors" style="padding-top: 8px; padding-bottom: 8px">includes:
+                                <br/>
+                                <br/>
+
+                                <span class="amenities fa fa-wifi">
+                                    <span class="amenity-info" style="font-size: 10px"> Wifi</span>
+                                </span>
+                                <span class="amenities fa fa-tint">
+                                    <span class="amenity-info" style="font-size: 10px"> Water</span>
+                                </span>
+                                <span class="amenities fa fa-car">
+                                    <span class="amenity-info" style="font-size: 10px"> Parking</span>
+                                </span>
+
+                                <span class="amenities fa fa-bolt">
+                                    <span class="amenity-info" style="font-size: 10px"> Electricity</span>
+                                </span>
+
+
+                            </h4>
+                            <!-- <div class="action">Gorin:
+                             <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+                            <span class="color green"></span>
+                            <span class="color blue"></span>
+                        </div> -->
+
+                            <div class="action">
+                                <button class="buttongo" type="button" onclick="location.href = 'checkout.html';">Book now</button>
+                                <span style="padding: 10px"></span>
+                                <button class="buttongo" style="width: 60px; border-radius: 5%" type="button">
+                                    <span class="fas fa-shopping-cart"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="description" style="padding-top: 30px;">
+
+                        <h4>
+                            <span class="action"> description: </h4>
+                        </span>
+
+                        Flat for rent at New Baneswor, near Bhatbhateni store, Kathmandu. When you go into it, you find 2 bedrooms, 1 living room,
+                        1 kitchen and 1 bathroom. It is a ground floor flat. The flat is lighted and clean environment. The
+                        flat is located at a very prime location and suitable for small family. It has good water supply
+                        and bike parking space.
+                        <br/>
+                        <br/>
+                        <strong>Preferences for:</strong>
+                        <br/>
+                        <br/>
+                        <li>Family of not more than 5</li>
+                        <li>Can be College students
+                        </li>
+                        <li>Preferably girls</li>
+                        <li>Pets are not allowed
+                        </li>
+
+
+
+
+                        </span>
+
+                    </div>
+                    <div class="description" style="padding-top: 30px;">
+
+                        <h4>
+                            <span class="action"> Location: </h4>
+                        </span>
+
+                        <div id="map">
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="related-category">
+                <h3>Related Spaces near Same Location</h3>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="Carousel" class="carousel slide">
+
+                            <ol class="carousel-indicators">
+                                <li data-target="#Carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#Carousel" data-slide-to="1"></li>
+                                <li data-target="#Carousel" data-slide-to="2"></li>
+                            </ol>
+
+                            <!-- Carousel items -->
+                            <div class="carousel-inner">
+
+                                <div class="item active">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <a href="#" class="thumbnail">
+                                                <img src="https://www.sorrentoflats.com/images/contents/rooms/deluxe.jpg" alt="Image" style="max-width:100%;">
+                                            </a>
+                                            <button>
+                                                <a href="#">VIEW MORE</a>
+                                            </button>
+                                            <h4>
+                                                <strong>Building B678</strong>
+                                            </h4>
+                                            <p>
+                                                <span class="fas fa-map-marker-alt"></span> New Baneswor, Kathmandu</p>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <a href="#" class="thumbnail">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWjz0B9TDnoQ9_rul1yYK_DE7yj20pButXo209KhE4AS0Z7XW5" alt="Image"
+                                                    style="max-width:100%;">
+                                            </a>
+                                            <button>
+                                                <a href="#">VIEW MORE</a>
+                                            </button>
+                                            <h4>
+                                                <strong>Building B608</strong>
+                                            </h4>
+                                            <p>
+                                                <span class="fas fa-map-marker-alt"></span> New Baneswor, Kathmandu</p>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <a href="#" class="thumbnail">
+                                                <img src="http://www.bebvalentinasorrento.com/wp-content/uploads/2016/06/sorrento-home.jpg" alt="Image" style="max-width:100%;">
+                                            </a>
+                                            <button>
+                                                <a href="#">VIEW MORE</a>
+                                            </button>
+                                            <h4>
+                                                <strong>Building B780</strong>
+                                            </h4>
+                                            <p>
+                                                <span class="fas fa-map-marker-alt"></span> New Baneswor, Kathmandu</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a href="#" class="thumbnail">
+                                                <img src="https://www.sorrentoflats.com/images/contents/home/rooms.jpg" alt="Image" style="max-width:100%;">
+                                            </a>
+                                            <button>
+                                                <a href="#">VIEW MORE</a>
+                                            </button>
+                                            <h4>
+                                                <strong>Building B543</strong>
+                                            </h4>
+                                            <p>
+                                                <span class="fas fa-map-marker-alt"></span> New Baneswor, Kathmandu</p>
+                                        </div>
+                                    </div>
+                                    <!--.row-->
+                                </div>
+                                <!--.item-->
+
+                                <div class="item">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <a href="#" class="thumbnail">
+                                                <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                            </a>
+                                            <h4>
+                                                <strong>Building B678</strong>
+                                            </h4>
+                                            <p>
+                                                <span class="fas fa-map-marker-alt"></span> New Baneswor, Kathmandu</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a href="#" class="thumbnail">
+                                                <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                            </a>
+                                            <h4>
+                                                <strong>Building B678</strong>
+                                            </h4>
+                                            <p>
+                                                <span class="fas fa-map-marker-alt"></span> New Baneswor, Kathmandu</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a href="#" class="thumbnail">
+                                                <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                            </a>
+                                            <h4>
+                                                <strong>Building B678</strong>
+                                            </h4>
+                                            <p>
+                                                <span class="fas fa-map-marker-alt"></span> New Baneswor, Kathmandu</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a href="#" class="thumbnail">
+                                                <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                            </a>
+                                            <h4>
+                                                <strong>Building B678</strong>
+                                            </h4>
+                                            <p>
+                                                <span class="fas fa-map-marker-alt"></span> New Baneswor, Kathmandu</p>
+                                        </div>
+                                    </div>
+                                    <!--.row-->
+                                </div>
+                                <!--.item-->
+
+                                <div class="item">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <a href="#" class="thumbnail">
+                                                <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                            </a>
+                                            <h4>
+                                                <strong>Building B678</strong>
+                                            </h4>
+                                            <p>
+                                                <span class="fas fa-map-marker-alt"></span> New Baneswor, Kathmandu</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a href="#" class="thumbnail">
+                                                <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                            </a>
+                                            <h4>
+                                                <strong>Building B678</strong>
+                                            </h4>
+                                            <p>
+                                                <span class="fas fa-map-marker-alt"></span> New Baneswor, Kathmandu</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a href="#" class="thumbnail">
+                                                <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                            </a>
+                                            <h4>
+                                                <strong>Building B678</strong>
+                                            </h4>
+                                            <p>
+                                                <span class="fas fa-map-marker-alt"></span> New Baneswor, Kathmandu</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a href="#" class="thumbnail">
+                                                <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                            </a>
+                                            <h4>
+                                                <strong>Building B678</strong>
+                                            </h4>
+                                            <p>
+                                                <span class="fas fa-map-marker-alt"></span> New Baneswor, Kathmandu</p>
+                                        </div>
+                                    </div>
+                                    <!--.row-->
+                                </div>
+                                <!--.item-->
+
+                            </div>
+                            <!--.carousel-inner-->
+                            <a data-slide="prev" href="#Carousel" class="left carousel-control">‹</a>
+                            <a data-slide="next" href="#Carousel" class="right carousel-control">›</a>
+                        </div>
+                        <!--.Carousel-->
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+    </div>
+
+
+    <div class="footer-wrapper" style="background: #111111; height: 100px; text-align: center; color: white; padding: 20px">
+        The Hipsters Ⓒ 2018
+        <br/>
+        <br/>
+        <li>
+
+            About Us </li>
+
+        <li>Terms Of Use</li>
+
+
+        <li>Privacy Policies</li>
+
+    </div>
+
+    </div>
+    <script>
+        function initMap() {
+            // The location of Ktm
+            var Kathmandu = { lat: 27.7172, lng: 85.3240 };
+            // The map, centered at Ktm
+
+            var Kathmandu = { lat: 27.7172, lng: 85.3240 };
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 16, center: Kathmandu });
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({ position: Kathmandu, map: map });
+
+
+        }
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmlYRGM1xqhjWv6MZB-yTEU0ozZyPcTqY&callback=initMap">
+    </script>
+    </script>
+
+</body>
+
+</html>

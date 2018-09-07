@@ -556,24 +556,24 @@ terracotta df6e21 -->
         }
     </style>
 
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
-        crossorigin="anonymous"> -->
+        crossorigin="anonymous">
 
-    <link rel="stylesheet" href="./css/all.css">
+    <!--  <link rel="stylesheet" href="./css/all.css">
 
 
     <script src="./js/jquery.js"></script>
 
     <script src="./js/bootstrap.js"></script>
-
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
-    crossorigin="anonymous"> -->
+ -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+        crossorigin="anonymous">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 
@@ -604,17 +604,17 @@ terracotta df6e21 -->
                 </div>
                 <div class="nav-menu">
                     <button class="btn nav-button" onclick="location.href='home_sell.html'"> List your Property</button>
-                    <button class="btn nav-button" onclick="location.href='sell_furniture.html'"> Sell your Furnitures</button>
+                    <button class="btn nav-button" id='sell-fur' onclick="location.href='sell_furniture.html'"> Sell your Furnitures</button>
                     <ul class="register">
                         <li>
                             <span class="wish-list fas fa-shopping-cart" onclick="location.href='cart.html'"></span>
                             </a>
                         </li>
                         <li>
-                            <button>Register</button>
+                            <button id='register-check'>Register</button>
                         </li>
                         <li>
-                            <button>Login</button>
+                            <button id='login-check'>Login</button>
                         </li>
                     </ul>
                     <!-- <div class="register">Register</div>
@@ -986,6 +986,44 @@ terracotta df6e21 -->
 
 
         <script type="text/javascript">
+
+
+            window.onload = function () {
+                MIXPANEL.configure({
+                    apiKey: 'abc123',
+                    email: 'shrijan00003@gmail.com'
+                }).then(() => MIXPANEL.identify())
+                MIXPANEL.identify()
+            }
+
+            const loginBtn = document.getElementById('login-check')
+            const registerBtn = document.getElementById('register-check')
+            const sellFur = document.getElementById('sell-fur')
+
+            loginBtn.onclick = function () {
+                console.log('track called in login')
+                MIXPANEL.track({
+                    name: "Login Clicked",
+                    eventName: "clicked_loin",
+                    payload:
+                    {
+                        user: "shrijan sharma",
+                        change: "Account Delete", reaseon: "feels insecure"
+                    }
+                }).then(data => console.log(data)).catch(err => console.error(err))
+            }
+
+            sellFur.onclick = function () {
+                console.log('for pages')
+                MIXPANEL.page({
+                    name: "Main Page", title: "mainPage", keywords: ["home", "news", "top", "hello"]
+                }).then(data => console.log(data)).catch(err => console.error(err))
+
+            }
+
+
+
+
             var a = document.getElementsByClassName('navbar-menu')
 
             $(window).on('scroll', function () {
@@ -1020,6 +1058,7 @@ terracotta df6e21 -->
 
 
         </script>
+        <script src='https://unpkg.com/mixpanel-user-library@0.1.8/umd/index.js'></script>
 
 </body>
 
